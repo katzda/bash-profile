@@ -12,7 +12,7 @@ cl() { clear; ll; }
 alias dps='docker ps --format "table {{.Ports}}\t{{.Names}}\t{{.Status}}\t{{.Networks}}"';
 
 a() { clear; git add -A; git status; }
-c() { clear; echo "$(pwd) --> $@"; cd "$@"; ll; }
+c() { clear; lwd=$(pwd); cd "$@"; echo "$lwd/ --> $(pwd)/"; ll; }
 s() { clear; git status "$@"; }
 u() { clear; git pull; }
 p() { clear; git commit -m "$1"; git push origin $(git branch --show-current); }
