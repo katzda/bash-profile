@@ -9,7 +9,7 @@ PS1='\e[0;32m\@\e[m \[\e[0;36m\]\u\[\e[0;36m\]@\[\e[0;36m\]\h\[\e[0;36m\]:\[\e[0
 
 ll() { ls -alp; }
 cl() { clear; ls -alp; }
-alias dps='docker ps --format "table {{.Ports}}\t{{.Names}}\t{{.Status}}\t{{.Networks}}"';
+alias dps='sudo docker ps --format "table {{.Ports}}\t{{.Names}}\t{{.Status}}\t{{.Networks}}"';
 
 a() { clear; git add -A; git status; }
 c() { lwd=$(pwd); [ -d "$@" ] && clear && cd "$@" && echo "$lwd/ --> $(pwd)/" && ls -alp || echo "not a directory"; }
