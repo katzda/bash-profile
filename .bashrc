@@ -22,3 +22,5 @@ h() { history | grep "$@"; }
 g() { clear; git checkout "$@"; }
 r() { clear; git reset --hard; git status; }
 b() { clear; git branch "$@"; }
+
+ll;
