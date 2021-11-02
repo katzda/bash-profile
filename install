@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# change to directory of this install script
+cd $(dirname $0);
+
+[ ! -f ~/.git-prompt.sh ] && wget -O ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+[ -f ~/.bashrc ] && mv -n ~/.bashrc ~/.bashrc.bak
+
+cp .bashrc ~;
+source ~/.bashrc;
