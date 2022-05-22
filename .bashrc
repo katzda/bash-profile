@@ -10,9 +10,9 @@ source ~/.git-prompt.sh
 PS1='\e[0;32m\@\e[m \[\e[0;36m\]\u\[\e[0;36m\]@\[\e[0;36m\]\h\[\e[0;36m\]:\[\e[0;34m\]\w\[\e[0;39m\]\[\e[0;31m\]$(__git_ps1 " (%s)")\[\e[0;31m\] \[\e[1;39m\]\n\$ '
 
 alias ls='ls --color';
-ll() { ls -alp "$@"; }
+ll() { clear; ls -alp "$@"; }
 cl() { clear; ls -alp; }
-alias dps='sudo docker ps --format "table {{.Ports}}\t{{.Names}}\t{{.Status}}\t{{.Networks}}"';
+alias dps='docker ps --format "table {{.Ports}}\t{{.Names}}\t{{.Status}}\t{{.Networks}}"';
 
 a() { clear; git add -A; git status; }
 c() { lwd=$(pwd); [ -d "$@" -o "$@" = "-" ] && clear && cd "$@" && echo "$lwd/ --> $(pwd)/" && ls -alp || echo "not a directory"; }
@@ -20,11 +20,10 @@ s() { clear; git status "$@"; }
 u() { clear; git pull; }
 p() { clear; git commit -m "$1"; git push origin $(git branch --show-current); }
 d() { clear; git diff "$@"; }
-alias l='git log';
-h() { history | grep "$@"; }
+alias l='ls -lp';
+h() { git log; }
 g() { clear; git checkout "$@"; }
 r() { clear; git reset --hard; git status; }
 b() { clear; git branch "$@"; }
 
-cd ~;
-ll;
+c ~;
