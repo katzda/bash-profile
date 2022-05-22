@@ -10,4 +10,10 @@ cd $(dirname $0);
 [ -f ~/.bashrc ] && mv -n ~/.bashrc ~/.bashrc.bak
 
 cp .bashrc ~;
+
+if [ "$1" = "-g" ]; then
+  sudo cp .bashrc /etc/profile.d/.bashrc;
+else
+  cp .bashrc ~;
+fi;
 source ~/.bashrc;
