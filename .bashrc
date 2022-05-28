@@ -12,7 +12,8 @@ PS1='\e[0;32m\@\e[m \[\e[0;36m\]\u\[\e[0;36m\]@\[\e[0;36m\]\h\[\e[0;36m\]:\[\e[0
 alias ls='ls --color';
 ll() { clear; ls -alp "$@"; }
 cl() { clear; ls -alp; }
-dps() { clear; docker ps --format "table {{.Ports}}\t{{.Names}}\t{{.Status}}\t{{.Networks}}"; };
+dps() { clear; docker container ls -a --format "table {{.ID}}\t{{.Image}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Names}}"; };
+dpsr() { docker container stop $(docker ps --filter "status=restarting" -q) 2>/dev/null; docker container rm $(docker ps --filter "status=exited" -q) 2>/dev/null; dps; };
 
 a() { clear; git add -A; git status; }
 c() { lwd=$(pwd); [ -d "$@" -o "$@" = "-" ] && clear && cd "$@" && echo "$lwd/ --> $(pwd)/" && ls -alp || echo "not a directory"; }
