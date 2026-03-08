@@ -1,0 +1,16 @@
+#!/bin/bash
+
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_SHOWCOLORHINTS=true
+
+PS1='\e[0;32m\@\e[m \[\e[0;36m\]\u\[\e[0;36m\]@\[\e[0;36m\]\h\[\e[0;36m\]:\[\e[0;34m\]\w\[\e[0;39m\]\[\e[0;31m\]$(__git_ps1 " (%s)")\[\e[0;31m\] \[\e[1;39m\]\n\$ '
+
+# . "/home/katzda/.local/share/lscolors.sh";
+
+source ~/.git-completion.bash
+
+source ~/.git-prompt.sh
+
+source ~/.custom_shortcuts
+
